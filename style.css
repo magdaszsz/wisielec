@@ -10,13 +10,9 @@ main {
     background: black;
     color: white;
     font-family: 'Eater', cursive;
+    position: relative;
     }
 
-i {
-    cursor: pointer;
-    font-size: 1.3em;
-    padding: 10px;
-}
 
 
 .first-card, 
@@ -25,12 +21,17 @@ i {
     width: 100%;
     height: 100vh;
     transition: all 1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
     
 }
 /* klasa do przesuwania całej strony*/
 
 .first-card {
     transform: translateX(0);
+    //z-index: 99;
 }
 
 .slide {
@@ -181,36 +182,6 @@ i {
     transform: skewX(28deg);
 }
 
-.hangman:hover .left-arm{
-    left: 148px;
-    transform: rotate(-70deg);
-    transform-origin: top;
-}
-
-.hangman:hover .right-arm {
-    transform: rotate(60deg);
-    transform-origin: top;
-    left: 148px;
-}
-
-.hangman:hover .right-leg {
-    transform: rotate(10deg);
-    transform-origin: top;
-    left: 155px;
-}
-
-.hangman:hover .left-leg {
-    transform: rotate(-10deg);
-    transform-origin: top;
-    left: 155px;
-}
-
-.hangman:hover .head {
-    top: 145px;
-    left: 108px;
-}
-
-
 /********** druga strona z kategoriami *********/
 
 .second-card__title {
@@ -221,6 +192,12 @@ i {
 
 .second-card {
     transform: translateX(-100%);
+    z-index: 1;
+    opacity: 0;
+}
+
+.showSecond {
+    opacity: 1;
 }
 
 .second {
@@ -231,6 +208,7 @@ i {
     display: flex;
     justify-content: space-around;
 }
+
 
 .second-card__button {
     padding: 5px;
@@ -248,36 +226,68 @@ i {
     transform: translateX(0);
 }
 
-/***************** ASIDE/zasady gry *******************/
-i {
+.hideSecond {
+    transform: translateX(100%);
+}
+
+
+/***************** third card ****************/
+
+.third-card {
+    transform: translateX(-100%);
+}
+
+.third-card .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.third-guess {
+    transform: translateY(-50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.showThird {
+    transform: translateX(0);
+}
+
+.correctLetters {
+    color: white;
+    display: flex;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
+.singleLetter {
+    margin: 9px;
+}
+
+.list-alphabet {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+
+.item-alphabet {
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
     cursor: pointer;
-    font-size: 1.3em;
 }
 
-aside {
-    padding: 10px;
-    height: 100vh;
-    width: 20%;
-    background: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background:white;
+.item-alphabet:hover {
     color: black;
-    margin: -100%;
-    transition: all .5s;
+    background: white;
 }
 
-aside p {
-    font-family: Arial;
-    padding: 10px 0;
-}
-
-.show {
-    margin: 0;
-}
-
-i, aside {
-    z-index: 99;
-}
 
